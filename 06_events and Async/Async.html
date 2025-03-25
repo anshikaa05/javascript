@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #212121;
+color: #fff;">
+    <h1>Myntra Online App</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const callme = function () {
+        console.log("Called");
+    }
+    // setInterval(callme, 2000)
+    const callagain = function () {
+        const change = document.querySelector('h1');
+        change.innerHTML = "Myntra Shopping App"
+    }
+    const changeme = setTimeout(callagain, 2000);
+    document.querySelector('#stop').addEventListener('click', function () {
+        clearTimeout(changeme);
+        console.log("STOPPED");
+    })
+
+    // setTimeout(callagain, 2000);
+
+</script>
+
+</html>

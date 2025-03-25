@@ -35,7 +35,7 @@ buttons.forEach(function (button) {
 });
 
 ```
-#Solution Code 1
+#Solution Code 2
 
 ```Javascript
 
