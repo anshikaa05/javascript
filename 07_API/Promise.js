@@ -41,18 +41,58 @@ const promiseThree = new Promise(function (resolve, reject) {
 
 })
 
-promiseFour.then(function (user) {
+promiseThree.then(function (user) {
     console.log(user);
 })
 
 const promiseFour = new Promise(function (resolve, reject) {
 
     setTimeout(function () {
-        resolve({ username: "Anshika", email: "canshsu@gmail.com" });
+        let error = true;
+        if (!error) {
+            resolve({ username: "Anshika", email: "canshsu@gmail.com" });
+        }
+        else {
+            reject("ERROR: Warning Message");
+        }
     }, 1000)
+});
 
-})
-
-promiseThree.then(function (user) {
+promiseFour.then(function (user) {
     console.log(user);
+    return user.username;
+}).then(function (username) {
+    console.log(username);
+}).catch(function (error) {
+    console.log(error);
+}).finally(function () {
+    console.log("The promise is resolved or rejected");
 })
+
+const promiseFive = new Promise(function (resolve, reject) {
+
+    setTimeout(function () {
+        let error = true;
+        if (!error) {
+            resolve({ username: "Javascript", Password: "1234" });
+        }
+        else {
+            reject("ERROR: Warning Message 2");
+        }
+    }, 1000)
+});
+
+// promiseFive.then(function(){
+
+// }) similar different method async wait
+async function consumepromiseFive() {
+    try {
+        const response = await promiseFive
+        console.log(response);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+consumepromiseFive();
